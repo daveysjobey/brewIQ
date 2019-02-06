@@ -11,7 +11,6 @@ CREATE TABLE brew_log
 	brewer_name varchar(255),
 	fermenter INTEGER,
 	brew_date DATE,
-
 	ingreedient_1 varchar(255),
 	ingreedient_1_weight DECIMAL(6,2),
 	ingreedient_2 varchar(255),
@@ -26,7 +25,6 @@ CREATE TABLE brew_log
 	wirlfloc_weight DECIMAL(6,2),
 	CaCl2_weight DECIMAL(6,2),
 	CoSo4_weight DECIMAL(6,2),
-
 	hop_1 varchar(255),
 	hop_1_weight DECIMAL(6,2),
 	hop_1_boil INTEGER,
@@ -42,15 +40,13 @@ CREATE TABLE brew_log
 	hop_5 varchar(255),
 	hop_5_weight DECIMAL(6,2),
 	hop_5_boil INTEGER,
-
 	dryhop_1 varchar(255),
 	dryhop_1_weight DECIMAL(6,2),
 	dryhop_2 varchar(255),
 	dryhop_2_weight DECIMAL(6,2),
 	dryhop_3 varchar(255),
 	dryhop_3_weight DECIMAL(6,2),
-	drhop_date DATE,
-
+	dryhop_date DATE,
 	mash_water_vol DECIMAL(6,2),
 	strike_temp DECIMAL(6,2),
 	mash_temp DECIMAL(6,2),
@@ -64,7 +60,6 @@ CREATE TABLE brew_log
 	kettle_full_vol DECIMAL(6,2),
 	preboil_gravity DECIMAL(6,2),
 	boil_start_time varchar(255),
-
 	whirlpool_start_time varchar(255),
 	whirlpool_stop_time varchar(255),
 	knock_out_start varchar(255),
@@ -76,17 +71,14 @@ CREATE TABLE brew_log
 	pitch_vol varchar(255),
 	fv_temp varchar(255),
 	postboil_gravity varchar(255),
-
 	stage INTEGER,
-
 	vol_units varchar(255),
-
 	cellering_date DATE,
-	dry_hop_date DATE,
-
+	bright_tank INTEGER,
 	transfer_date DATE,
 	transfer_vol DECIMAL(6,2),
 	keg_date DATE,
 	keg_vol DECIMAL(6,2),
+	notes varchar(3000),
 	PRIMARY KEY (id)
 );
