@@ -1,9 +1,13 @@
-<li>
-	{{name}}
 
-	<button class="short" data-id="{{id}}" data-newsleep="{{sleep}}">
-		Edit
-	</button>
+	<div class="row">
+            <div class="col s12 ">
+              <div class="card-panel brown">
+                <h5 class="white-text m1"> {{name}} </h5>
+                <span class="white-text">Style: {{style}}. Brewed by {{brewer_name}}. Created {{brew_date}}.
+                </span>
+                </br>
+                <button class="right btn-large green">Edit</button>
+              </div>
+            </div>
+          </div>
 
-	<button class="delete-cat" data-id="{{this.id}}">DELETE!</button>
-</li>

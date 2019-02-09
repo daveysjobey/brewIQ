@@ -11,6 +11,38 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/stage1", function(req, res) {
+    db.Beer.findAll({}).then(function(dbBeers) {
+      res.render("stage1", {
+        beers: dbBeers
+      });
+    });
+  });
+
+  app.get("/stage2", function(req, res) {
+    db.Beer.findAll({}).then(function(dbBeers) {
+      res.render("stage2", {
+        beers: dbBeers
+      });
+    });
+  });
+
+  app.get("/stage3", function(req, res) {
+    db.Beer.findAll({}).then(function(dbBeers) {
+      res.render("stage3", {
+        beers: dbBeers
+      });
+    });
+  });
+
+  app.get("/stage4", function(req, res) {
+    db.Beer.findAll({}).then(function(dbBeers) {
+      res.render("stage4", {
+        beers: dbBeers
+      });
+    });
+  });
+
   // Load beer page and pass in an beer by id
   app.get("/beer/:id", function(req, res) {
     db.Beer.findOne({ where: { id: req.params.id } }).then(function(dbBeer) {

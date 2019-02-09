@@ -11,6 +11,7 @@
 }
 h1{
   margin-bottom: 0;
+  
 }
 h5{
   margin-top: 0;
@@ -26,4 +27,23 @@ h5{
   margin: 0 auto;
   
   width: 90%;
+}
+
+.nav-link{
+  font-size: 18px !important;
+  font-family: "Helvetica Neue",sans-serif;
+  
+
+}
+i.left{
+  margin-right: 3px;
+}
+i.right{
+  margin-left: 3px;
+}
+
+.inline-icon{
+  vertical-align: bottom;
+   font-size: 32px !important;
+   
 }
