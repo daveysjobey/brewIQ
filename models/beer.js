@@ -49,19 +49,19 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Beer.associate = function (models) {
-    Beer.hasMany(models.Step1, {
+    Beer.hasOne(models.Step1, {
       onDelete: "cascade"
     });
   };
 
   Beer.associate = function (models) {
-    Beer.hasMany(models.Step2, {
+    Beer.hasOne(models.Step2, {
       onDelete: "cascade"
     });
   };
 
   Beer.associate = function (models) {
-    Beer.hasMany(models.Step3, {
+    Beer.hasOne(models.Step3, {
       onDelete: "cascade"
     });
   };
