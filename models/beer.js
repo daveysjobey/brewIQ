@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = function (sequelize, DataTypes) {
   var Beer = sequelize.define("Beer", {
     id: {
@@ -43,8 +44,8 @@ module.exports = function (sequelize, DataTypes) {
     stage: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 1
-    },
+      defaultValue: 0
+    }
   });
 
   Beer.associate = function (models) {
