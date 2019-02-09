@@ -11,6 +11,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/stage0", function(req, res) {
+    db.Beer.findAll({}).then(function(dbBeers) {
+      res.render("stage0", {
+        beers: dbBeers
+      });
+    });
+  });
+
   app.get("/stage1", function(req, res) {
     db.Beer.findAll({}).then(function(dbBeers) {
       res.render("stage1", {
