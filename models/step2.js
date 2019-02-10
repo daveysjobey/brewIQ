@@ -1,150 +1,148 @@
-module.exports = function (sequelize, DataTypes) {
-    var Step2 = sequelize.define("Step2", {
+module.exports = function(sequelize, DataTypes) {
+  var Step2 = sequelize.define("Step2", {
+    mashWaterVol: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        mash_water_vol: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    strikeTemp: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        strike_temp: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    mashTemp: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        mash_temp: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    allInTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        all_in_time: {
-            type: DataTypes.TIME,
-            allowNull: false
-        },
+    vorlofStartTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        vorlof_start_time: {
-            type: DataTypes.TIME,
-            allowNull: false
-        },
+    lauterStartTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        lauter_start_time: {
-            type: DataTypes.TIME,
-            allowNull: false
-        },
+    spargeStartTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        sparge_start_time: {
-            type: DataTypes.TIME,
-            allowNull: false
-        },
+    spargeStopTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        sparge_stop_time: {
-            type: DataTypes.TIME,
-            allowNull: false
-        },
+    lauterStopTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        lauter_stop_time: {
-            type: DataTypes.TIME,
-            allowNull: false
-        },
+    spargeWaterVol: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
 
-        sparge_water_vol: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+    kettleFullVol: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
 
-        kettle_full_vol: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+    preboilGravity: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        preboil_gravity: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    boilStartTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        boil_start_time: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
+    whirlpool_start_time: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        whirlpool_start_time: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
+    whirlpool_stop_time: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        whirlpool_stop_time: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
+    knockOutStart: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        knock_out_start: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
+    knockOutStop: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
 
-        knock_out_stop: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
+    knockOutTemp: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        knock_out_temp: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    o2_lpm: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        o2_lpm: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    postboilGravity: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        postboil_gravity: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    yeastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 255]
+      }
+    },
 
-        yeast_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
-        },
+    yeastGen: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
 
-        yeast_gen: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+    pitchVol: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        pitch_vol: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    fvTemp: {
+      type: DataTypes.DECIMAL(6, 2),
+      allowNull: false
+    },
 
-        fv_temp: {
-            type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-        },
+    dryhopDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    },
 
-        dryhop_date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        },
+    celleringDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    }
+  });
 
-        cellering_date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        },
+  Step2.associate = function(models) {
+    Step2.belongsTo(models.Beer, {
+      foreignKey: {
+        allowNull: false
+      }
     });
+  };
 
-
-    Step2.associate = function (models) {
-        Step2.belongsTo(models.Beer, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
-
-    return Step2;
+  return Step2;
 };

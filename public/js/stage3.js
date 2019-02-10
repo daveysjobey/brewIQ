@@ -1,8 +1,9 @@
 // Get references to page elements
-var $brand = $("#brand");
-var $style = $("#style");
-var $brewerName = $("#brewerName");
-var $brewDate = $("#brewDate");
+var $brightTank = $("#brightTank");
+var $transferDate = $("#transferDate");
+var $transferVol = $("#transferVol");
+var $kegDate = $("#kegDate");
+var $kegVol = $("#kegVol");
 var $submit = $("#submit");
 
 // The API object contains methods for each kind of request we'll make
@@ -72,13 +73,15 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var beer = {
-    brand: $brand.val().trim(),
-    style: $style.val().trim(),
-    brewerName: $brewerName.val().trim(),
-    brewDate: $brewDate.val().trim()
+
+    brightTank: $brightTank.val("#brightTank").trim(),
+    transferDate: $transferDate.val("#transferDate").trim(),
+    transferVol: $transferVol.val("#transferVol").trim(),
+    kegDate: $kegDate.val("#kegDate").trim(),
+    kegVol: $kegVol.val("#kegVol").trim()
   };
 
-  if (!(beer.brand && beer.style && beer.brewerName && beer.brewDate)) {
+  if (!(beer.transferDate && beer.transferVol && beer.kegDate && beer.kegVol)) {
     alert(
       "You must enter the beer's brand, style, brewer's name, and brew date"
     );
@@ -91,10 +94,11 @@ var handleFormSubmit = function(event) {
 
   //);
 
-  $brand.val("");
-  $style.val("");
-  $brewerName.val("");
-  $brewDate.val("");
+  $brightTank.val("");
+  $transferDate.val("");
+  $transferVol.val("");
+  $kegDate.val("");
+  $kegVol.val("");
 };
 
 // handleDeleteBtnClick is called when an beer's delete button is clicked
