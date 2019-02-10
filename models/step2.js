@@ -65,12 +65,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    whirlpool_start_time: {
+    whirlpoolStartTime: {
       type: DataTypes.TIME,
       allowNull: false
     },
 
-    whirlpool_stop_time: {
+    whirlpoolStopTime: {
       type: DataTypes.TIME,
       allowNull: false
     },
@@ -90,7 +90,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    o2_lpm: {
+    o2Lpm: {
       type: DataTypes.DECIMAL(6, 2),
       allowNull: false
     },

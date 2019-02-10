@@ -73,7 +73,6 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var beer = {
-
     brightTank: $brightTank.val("#brightTank").trim(),
     transferDate: $transferDate.val("#transferDate").trim(),
     transferVol: $transferVol.val("#transferVol").trim(),

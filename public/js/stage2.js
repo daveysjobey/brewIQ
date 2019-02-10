@@ -123,10 +123,9 @@ var handleFormSubmit = function(event) {
   };
 
   //if (!(beer.yeastName && beer.style && beer.brewerName && beer.brewDate)) {
-    //alert(
-      //"You must enter the beer's brand, style, brewer's name, and brew date"
-    //);
-    //return;
+  //alert(
+  //"You must enter the beer's brand, style, brewer's name, and brew date"//);
+  //return;
   //}
 
   API.saveBeer(beer);
