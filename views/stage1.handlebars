@@ -1,11 +1,11 @@
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container">
-      
-        <a class="nav-link right" href="/stage2">Brewing <i class="inline-icon material-icons white-text right">fast_forward</i></a>
-           <a class="nav-link left" href="/stage0">Info<i class="inline-icon material-icons white-text left">fast_rewind</i></a>
 
-    <a href="/"><img src="/images/BrewIQ Logo.png" id="logo-container" href="#" class="center brand-logo"></a> 
-     
+    <a class="nav-link right" href="/stage2">Brewing <i class="inline-icon material-icons white-text right">fast_forward</i></a>
+    <a class="nav-link left" href="/stage0">Info<i class="inline-icon material-icons white-text left">fast_rewind</i></a>
+
+    <a href="/"><img src="/images/BrewIQ Logo.png" id="logo-container" href="#" class="center brand-logo"></a>
+
   </div>
 </nav>
 
@@ -14,8 +14,204 @@
     <br>
     <br>
     <h1 class="header center brown-text">Inventory</h1>
-    <div class="row center">
-      
+
+    <br><br>
+
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col l3 s12 m6">
+            <input id="batch_number" type="number" class="validate">
+            <label for="batch_number">Batch Number</label>
+          </div>
+          <div class="input-field col l3 s12 m6">
+            <input id="fermenter" type="number" class="validate">
+            <label for="fermenter">Fermenter</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_1" type="text" class="validate">
+            <label for="ingredient_1">Ingredient 1:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_1_weight" type="number" class="validate">
+            <label for="ingredient_1_weight">Ingredient 1 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_2" type="text" class="validate">
+            <label for="ingredient_2">Ingredient 2</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_2_weight" type="number" class="validate">
+            <label for="ingredient_2_weight">Ingredient 2 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_3" type="text" class="validate">
+            <label for="ingredient_3">Ingredient 3</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_3_weight" type="number" class="validate">
+            <label for="ingredient_3_weight">Ingredient 3 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_4" type="text" class="validate">
+            <label for="ingredient_4">Ingredient 4</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_4_weight" type="number" class="validate">
+            <label for="ingredient_4_weight">Ingredient 4 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_5" type="text" class="validate">
+            <label for="ingredient_5">Ingredient 5</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="ingredient_5_weight" type="number" class="validate">
+            <label for="ingredient_5_weight">Ingredient 5 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="zinc_weight" type="number" class="validate">
+            <label for="zinc_weight">Zinc Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="whirlfloc_weight" type="number" class="validate">
+            <label for="whirlfloc_weight">Whilfloc Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="CaCl2_weight" type="number" class="validate">
+            <label for="CaCl2_weight">CaCl2 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="CoSo4_weight" type="number" class="validate">
+            <label for="CoSo4_weight">CoSo4 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_1" type="text" class="validate">
+            <label for="hop_1">Hop 1:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_1_weight" type="number" class="validate">
+            <label for="hop_1_weight">Hop 1 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_1_boil" type="number" class="validate">
+            <label for="hop_1_boil">Hop 1 Boil:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_2" type="text" class="validate">
+            <label for="hop_2">Hop 2:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_2_weight" type="number" class="validate">
+            <label for="hop_2_weight">Hop 2 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_2_boil" type="number" class="validate">
+            <label for="hop_2_boil">Hop 2 Boil:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_3" type="text" class="validate">
+            <label for="hop_3">Hop 3:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_3_weight" type="number" class="validate">
+            <label for="hop_3_weight">Hop 3 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="hop_3_boil" type="number" class="validate">
+            <label for="hop_3_boil">Hop 3 Boil:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_1" type="text" class="validate">
+            <label for="dryhop_1">Dryhop 1:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_1_weight" type="number" class="validate">
+            <label for="dryhop_1_weight">Dryhop 1 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_1_boil" type="number" class="validate">
+            <label for="dryhop_1_boil">Dryhop 1 Boil:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_2" type="text" class="validate">
+            <label for="dryhop_2">Dryhop 2:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_2_weight" type="number" class="validate">
+            <label for="dryhop_2_weight">Dryhop 2 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_2_boil" type="number" class="validate">
+            <label for="dryhop_2_boil">Dryhop 2 Boil:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_3" type="text" class="validate">
+            <label for="dryhop_3">Dryhop 3:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_3_weight" type="number" class="validate">
+            <label for="dryhop_3_weight">Dryhop 3 Weight:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_3_boil" type="number" class="validate">
+            <label for="dryhop_3_boil">Dryhop 3 Boil:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="vol_units" type="text" class="validate">
+            <label for="vol_units">Vol Units:</label>
+          </div>
+
+          <div class="input-field col s12">
+            <textarea id="notes" type="text" class="materialize-textarea validate"></textarea>
+            <label for="notes">Notes:</label>
+          </div>
+
+
+
+
+
+
+
+        </div>
+        <button class="btn brown waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+
   </div>
 </div>
 

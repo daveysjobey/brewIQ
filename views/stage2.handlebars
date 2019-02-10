@@ -1,20 +1,161 @@
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container">
-      
-        <a class="nav-link right" href="/stage3">Distribution <i class="inline-icon material-icons white-text right">fast_forward</i></a>
-      <a class="nav-link left" href="/stage1">Inventory <i class="inline-icon material-icons white-text left">fast_rewind</i></a>
-    <a href="/"><img src="/images/BrewIQ Logo.png" id="logo-container" href="#" class="center brand-logo"></a> 
-     
+
+    <a class="nav-link right" href="/stage3">Distribution <i class="inline-icon material-icons white-text right">fast_forward</i></a>
+    <a class="nav-link left" href="/stage1">Inventory <i class="inline-icon material-icons white-text left">fast_rewind</i></a>
+    <a href="/"><img src="/images/BrewIQ Logo.png" id="logo-container" href="#" class="center brand-logo"></a>
+
   </div>
 </nav>
+
 
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
     <br>
     <br>
     <h1 class="header center brown-text">Brewing</h1>
-    <div class="row center">
-      
+    <br><br>
+
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+
+          <div class="input-field col l3 m6 s12">
+            <input id="mash_water_vol" type="number" class="validate">
+            <label for="mash_water_vol">Volume of Mash Water:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="strike_temp" type="number" class="validate">
+            <label for="strike_temp">Strike Temp:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="mash_temp" type="number" class="validate">
+            <label for="mash_temp">Mash Temp:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="all_in_time" type="time" class="validate">
+            <label for="all_in_time">All in Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="vorlof_start_time" type="time" class="validate">
+            <label for="vorlof_start_time">Vorlof Start Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="lauter_start_time" type="time" class="validate">
+            <label for="lauter_start_time">Lauter Start Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="lauter_stop_time" type="time" class="validate">
+            <label for="lauter_stop_time">Lauter Stop Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="sparge_start_time" type="time" class="validate">
+            <label for="sparge_start_time">Sparge Start Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="sparge_stop_time" type="time" class="validate">
+            <label for="sparge_stop_time">Sparge Stop Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="sparge_water_vol" type="number" class="validate">
+            <label for="sparge_water_vol">Sparge Water Volume:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="kettle_full_vol" type="number" class="validate">
+            <label for="kettle_full_vol">Kettle Full Volume:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="preboil_gravity" type="number" class="validate">
+            <label for="preboil_gravity">Preboil Gravity:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="postboil_gravity" type="number" class="validate">
+            <label for="postboil_gravity">Postboil Gravity:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="boil_start_time" type="time" class="validate">
+            <label for="boil_start_time">Boil Start Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="whilrpool_start_time" type="time" class="validate">
+            <label for="whilrpool_start_time">Whirlpool Start Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="whilrpool_stop_time" type="time" class="validate">
+            <label for="whilrpool_stop_time">Whirlpool Stop Time:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="knock_out_start" type="time" class="validate">
+            <label for="knock_out_start">Knock Out Start:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="knock_out_stop" type="time" class="validate">
+            <label for="knock_out_stop">Knock Out Stop:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="knock_out_temp" type="number" class="validate">
+            <label for="knock_out_temp">Knock Out Temp:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="o2_lmp" type="number" class="validate">
+            <label for="o2_lmp">o2lmp:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="yeast_name" type="text" class="validate">
+            <label for="yeast_name">Yeast Name:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="yeast_gen" type="number" class="validate">
+            <label for="yeast_gen">Yeast Gen:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="pitch_vol" type="number" class="validate">
+            <label for="pitch_vol">Pitch Volume:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="fv_temp" type="number" class="validate">
+            <label for="fv_temp">FV Temp:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="dryhop_date" type="date" class="validate">
+            <label for="dryhop_date">Dryhop Date:</label>
+          </div>
+
+          <div class="input-field col l3 m6 s12">
+            <input id="cellering_date" type="date" class="validate">
+            <label for="cellering_date">Cellering Date:</label>
+          </div>
+
+        </div>
+         <button class="btn brown waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 
