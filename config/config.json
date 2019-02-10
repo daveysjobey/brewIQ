@@ -9,8 +9,8 @@
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "testdb",
+    "password": "root",
+    "database": "brew_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

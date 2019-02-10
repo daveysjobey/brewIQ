@@ -204,11 +204,8 @@ module.exports = function (sequelize, DataTypes) {
         },
         
         notes: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                len: [0, 3000]
-            }
         }
     });
 
