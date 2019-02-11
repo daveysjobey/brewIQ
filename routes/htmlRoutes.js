@@ -4,6 +4,7 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Beer.findAll({}).then(function(dbBeers) {
+      // res.json(dbBeers);
       res.render("index", {
         //msg: "Welcome!",
         beers: dbBeers
@@ -13,6 +14,7 @@ module.exports = function(app) {
 
   app.get("/stage0", function(req, res) {
     db.Beer.findAll({}).then(function(dbBeers) {
+      // res.json(dbBeers);
       res.render("stage0", {
         beers: dbBeers
       });
@@ -20,10 +22,11 @@ module.exports = function(app) {
   });
 
   app.get("/stage1", function(req, res) {
-    db.Beer.findAll({}).then(function(dbBeers) {
-      res.render("stage1", {
-        beers: dbBeers
-      });
+    db.Beer.findAll({
+      include: [{ model: db.Step1 }]
+    }).then(function(dbPost) {
+      res.json(dbpost);
+      // res.json(dbPost);
     });
   });
 
