@@ -4,20 +4,20 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Beer.findAll({}).then(function(dbBeers) {
-      res.json(dbBeers);
-      // res.render("index", {
-      //   //msg: "Welcome!",
-      //   beers: dbBeers
-      // });
+      // res.json(dbBeers);
+      res.render("index", {
+        //msg: "Welcome!",
+        beers: dbBeers
+      });
     });
   });
 
   app.get("/stage0", function(req, res) {
     db.Beer.findAll({}).then(function(dbBeers) {
-      res.json(dbBeers);
-      // res.render("stage0", {
-      //   beers: dbBeers
-      // });
+      // res.json(dbBeers);
+      res.render("stage0", {
+        beers: dbBeers
+      });
     });
   });
 
