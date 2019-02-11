@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Beer = sequelize.define("Beer", {
     id: {
       type: DataTypes.INTEGER,
@@ -20,11 +20,11 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-    batch_number: {
+    batchNumber: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    brewer_name: {
+    brewerName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -35,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    brew_date: {
+    brewDate: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW
@@ -48,19 +48,19 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Beer.associate = function (models) {
+  Beer.associate = function(models) {
     Beer.hasOne(models.Step1, {
       onDelete: "cascade"
     });
   };
 
-  Beer.associate = function (models) {
+  Beer.associate = function(models) {
     Beer.hasOne(models.Step2, {
       onDelete: "cascade"
     });
   };
 
-  Beer.associate = function (models) {
+  Beer.associate = function(models) {
     Beer.hasOne(models.Step3, {
       onDelete: "cascade"
     });
