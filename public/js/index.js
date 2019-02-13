@@ -3,6 +3,7 @@ var $beerText = $("#beer-text");
 var $beerDescription = $("#beer-description");
 var $submitBtn = $("#submit");
 var $beerList = $("#beer-list");
+var $editBtn = $(".edit-btn");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -99,6 +100,12 @@ var handleDeleteBtnClick = function() {
     refreshBeers();
   });
 };
+
+$(".edit-btn").on("click", function() {
+  event.preventDefault();
+  var stage = $(this).data("stage");
+  console.log(stage);
+});
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
