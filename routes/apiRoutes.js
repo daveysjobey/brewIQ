@@ -64,7 +64,7 @@ module.exports = function(app) {
   //update a row in Step2 table
   app.put("/api/step2", function(req, res) {
     console.log(req.body);
-    db.Step2.update(req.body, { where: { BeerId: req.body.BeerId }
+    db.Step2.update(req.body, {where: { BeerId: req.body.BeerId }
     }).then(function(dbBeer) {
       res.json(dbBeer);
     });
@@ -73,7 +73,7 @@ module.exports = function(app) {
   //update a row in Step3 table
   app.put("/api/step3", function(req, res) {
     console.log(req.body);
-    db.Step3.update(req.body, { where: { BeerId: req.body.BeerId }
+    db.Step3.update(req.body, {where: { BeerId: req.body.BeerId }
     }).then(function(dbBeer) {
       res.json(dbBeer);
     });

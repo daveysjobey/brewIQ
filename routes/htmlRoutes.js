@@ -24,9 +24,8 @@ module.exports = function(app) {
   app.get("/stage1", function(req, res) {
     db.Beer.findAll({
       include: [{ model: db.Step1 }]
-    }).then(function(dbPost) {
-      res.json(dbpost);
-      // res.json(dbPost);
+    }).then(function(dbBeers) {
+      res.json(dbBeers);
     });
   });
 
@@ -53,6 +52,15 @@ module.exports = function(app) {
       });
     });
   });
+
+    // Load beer page and pass in an beer by id
+    app.get("/step1/:id", function(req, res) {
+      db.Beer.findOne({ where: { id: req.params.id } }).then(function(dbBeer) {
+        res.render("beer", {
+          beer: dbBeer
+        });
+      });
+    });
 
   // Load beer page and pass in an beer by id
   app.get("/beer/:id", function(req, res) {
