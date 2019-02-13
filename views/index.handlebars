@@ -31,35 +31,19 @@
         <div class="icon-block">
           <h2 class="center light-blue-text"><i class="material-icons">shopping_cart</i></h2>
           <h5 class="center">Inventory</h5>
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
-          {{!-- {{each beer}}
-          {{#if beer.stage === 1}}
+          
+          {{#each beers}}
+          {{#if stage1}}
           {{> beers/beer-button}}
-
           {{/if}}
-          {{/each}} --}}
+          {{/each}}
+
+          {{#each beers}}
+          {{#if stage0}}
+          {{> beers/beer-button}}
+          {{/if}}
+          {{/each}}
+
         </div>
       </div>
 
@@ -68,29 +52,11 @@
           <h2 class="center light-blue-text"><i class="material-icons">update</i></h2>
           <h5 class="center">Brew In-Process</h5>
 
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
+         {{#each beers}}
+          {{#if stage2}}
+          {{> beers/beer-button}}
+          {{/if}}
+          {{/each}}
 
 
         </div>
@@ -101,53 +67,12 @@
           <h2 class="center light-blue-text"><i class="material-icons">exit_to_app</i></h2>
           <h5 class="center">Distribution</h5>
 
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col s12 ">
-              <div class="card-panel brown">
-                <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-                <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-                </span>
-                </br>
-                <button class="right btn-large green">Edit</button>
-              </div>
-            </div>
-          </div>
+          
+          {{#each beers}}
+          {{#if stage3}}
+          {{> beers/beer-button}}
+          {{/if}}
+          {{/each}}
 
 
         </div>
@@ -167,55 +92,11 @@
 
       <div class="row">
 
-        <div class="col s6 m4 l3 ">
-          <div class="card-panel blue">
-            <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-            <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-            </span>
-            </br>
-            <button class="right btn-small black">View</button>
-          </div>
-        </div>
-      
-        <div class="col s6 m4 l3 ">
-          <div class="card-panel blue">
-            <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-            <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-            </span>
-            </br>
-            <button class="right btn-small black">View</button>
-          </div>
-        </div>
-
-        <div class="col s6 m4 l3 ">
-          <div class="card-panel blue">
-            <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-            <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-            </span>
-            </br>
-            <button class="right btn-small black">View</button>
-          </div>
-        </div>
-
-        <div class="col s6 m4 l3 ">
-          <div class="card-panel blue">
-            <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-            <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-            </span>
-            </br>
-            <button class="right btn-small black">View</button>
-          </div>
-        </div>
-
-        <div class="col s6 m4 l3 ">
-          <div class="card-panel blue">
-            <h5 class="white-text m1"> Raspberry Princess Yum Yum</h5>
-            <span class="white-text">Style: Kolsch. Brewed by Austin Wiley. Created Feb 1st 2019.
-            </span>
-            </br>
-            <button class="right btn-small black">View</button>
-          </div>
-        </div>
+         {{#each beers}}
+          {{#if stage4}}
+          {{> beers/archive-button}}
+          {{/if}}
+          {{/each}}
       
       
       </div>
