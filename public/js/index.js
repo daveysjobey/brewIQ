@@ -102,7 +102,7 @@ var handleDeleteBtnClick = function() {
 };
 
 $(".edit-btn").on("click", function() {
-  event.preventDefault();
+  
   var stage = $(this).data("stage");
   console.log(stage);
 });
