@@ -5,7 +5,11 @@ INSERT INTO beers
 	brewerName,
 	fermenter,
 	brewDate,
-	stage)
+	stage0,
+	stage1,
+	stage2,
+	stage3,
+	stage4)
 VALUES
 	("Night Walker Stout",
 		"Stout",
@@ -13,7 +17,10 @@ VALUES
 		"Davey",
 		01,
 		"2019/01/01",
-		1);
+		0,
+		1,
+		0,
+		0);
 
 INSERT INTO step1s
 	(ingredient1,
@@ -153,7 +160,11 @@ INSERT INTO beers
 	brewerName,
 	fermenter,
 	brewDate,
-	stage)
+	stage0,
+	stage1,
+	stage2,
+	stage3,
+	stage4))
 VALUES
 	("Pinup Pilsner",
 		"Pilsner",
@@ -161,7 +172,10 @@ VALUES
 		"Daniel",
 		02,
 		"2019/02/01",
-		2);
+		0,
+		1,
+		0,
+		0);
 
 INSERT INTO step1s
 	(ingredient1,
