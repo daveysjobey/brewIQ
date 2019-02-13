@@ -18,7 +18,7 @@ if (config.use_env_variable) {
     config
   );
 }
-
+//test
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return (
