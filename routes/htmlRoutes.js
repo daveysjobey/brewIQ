@@ -22,11 +22,10 @@ module.exports = function(app) {
   });
 
   app.get("/stage1", function(req, res) {
-    db.Beer.findAll({
-      include: [{ model: db.Step1 }]
-    }).then(function(dbPost) {
-      res.json(dbpost);
-      // res.json(dbPost);
+    db.Beer.findAll({}).then(function(dbBeers) {
+      res.render("stage1", {
+        beers: dbBeers
+      });
     });
   });
 
