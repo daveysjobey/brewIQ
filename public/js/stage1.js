@@ -45,7 +45,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/beers",
+      url: "api/stage1/",
       data: JSON.stringify(beer)
     });
   },
@@ -101,54 +101,53 @@ var API = {
 // handleFormSubmit is called whenever we submit a new beer
 // Save the new beer to the db and refresh the list
 var handleFormSubmit = function(event) {
+  console.log("hello");
   event.preventDefault();
+
+  var pathArray = window.location.pathname.split('/');
+  var BeerId = pathArray[2];
+  console.log(BeerId);
 
   var beer = {
     brand: $batchNumber.val().trim(),
-    batchNumber: $batchNumber.val("").trim(),
-    fermenter: $fermenter.val("").trim(),
-    ingredient1: $ingredient1.val("").trim(),
-    ingredient1Weight: $ingredient1Weight.val("").trim(),
-    ingredient2: $ingredient2.val("").trim(),
-    ingredient2Weight: $ingredient2Weight.val("").trim(),
-    ingredient3: $ingredient3.val("").trim(),
-    ingredient3Weight: $ingredient3Weight.val("").trim(),
-    ingredient4: $ingredient4.val("").trim(),
-    ingredient4Weight: $ingredient4Weight.val("").trim(),
-    ingredient5: $ingredient5.val("").trim(),
-    ingredient5Weight: $ingredient5Weight.val$("").trim(),
-    zincWeight: $zincWeight.val("").trim(),
-    whirlflocWeight: $whirlflocWeight.val("").trim(),
-    CaCl2Weight: $CaCl2Weight.val("").trim(),
-    CoSo4Weight: $CoSo4Weight.val("").trim(),
-    hop1: $hop1.val("").trim(),
-    hop1Weight: $hop1Weight.val("").trim(),
-    hop1Boil: $hop1Boil.val("").trim(),
-    hop2: $hop2.val("").trim(),
-    hop2Weight: $hop2Weight.val("").trim(),
-    hop2Boil: $hop2Boil.val("").trim(),
-    hop3: $hop3.val("").trim(),
-    hop3Weight: $hop3Weight.val("").trim(),
-    hop3Boil: $hop3Boil.val("").trim(),
-    dryhop1: $dryhop1.val("").trim(),
-    dryhop1Weight: $dryhop1Weight.val("").trim(),
-    dryhop1Boil: $dryhop1Boil.val("").trim(),
-    dryhop2: $dryhop2.val("").trim(),
-    dryhop2Weight: $dryhop2Weight.val("").trim(),
-    dryhop2Boil: $dryhop2Boil.val("").trim(),
-    dryhop3: $dryhop3.val("").trim(),
-    dryhop3Weight: $dryhop3Weight.val("").trim(),
-    dryhop3Boil: $dryhop3Boil.val("").trim(),
-    volUnits: $volUnits.val("").trim(),
-    notes: $notes.val("").trim()
+    batchNumber: $batchNumber.val().trim(),
+    fermenter: $fermenter.val().trim(),
+    ingredient1: $ingredient1.val().trim(),
+    ingredient1Weight: $ingredient1Weight.val().trim(),
+    ingredient2: $ingredient2.val().trim(),
+    ingredient2Weight: $ingredient2Weight.val().trim(),
+    ingredient3: $ingredient3.val().trim(),
+    ingredient3Weight: $ingredient3Weight.val().trim(),
+    ingredient4: $ingredient4.val().trim(),
+    ingredient4Weight: $ingredient4Weight.val().trim(),
+    ingredient5: $ingredient5.val().trim(),
+    ingredient5Weight: $ingredient5Weight.val().trim(),
+    zincWeight: $zincWeight.val().trim(),
+    whirlflocWeight: $whirlflocWeight.val().trim(),
+    CaCl2Weight: $CaCl2Weight.val().trim(),
+    CoSo4Weight: $CoSo4Weight.val().trim(),
+    hop1: $hop1.val().trim(),
+    hop1Weight: $hop1Weight.val().trim(),
+    hop1Boil: $hop1Boil.val().trim(),
+    hop2: $hop2.val().trim(),
+    hop2Weight: $hop2Weight.val().trim(),
+    hop2Boil: $hop2Boil.val().trim(),
+    hop3: $hop3.val().trim(),
+    hop3Weight: $hop3Weight.val().trim(),
+    hop3Boil: $hop3Boil.val().trim(),
+    dryhop1: $dryhop1.val().trim(),
+    dryhop1Weight: $dryhop1Weight.val().trim(),
+    dryhop1Boil: $dryhop1Boil.val().trim(),
+    dryhop2: $dryhop2.val().trim(),
+    dryhop2Weight: $dryhop2Weight.val().trim(),
+    dryhop2Boil: $dryhop2Boil.val().trim(),
+    dryhop3: $dryhop3.val().trim(),
+    dryhop3Weight: $dryhop3Weight.val().trim(),
+    dryhop3Boil: $dryhop3Boil.val().trim(),
+    volUnits: $volUnits.val().trim(),
+    notes: $notes.val().trim(),
+    BeerId: BeerId
   };
-
-  if (!(beer.brand && beer.style && beer.brewerName && beer.brewDate)) {
-    alert(
-      "You must enter the beer's brand, style, brewer's name, and brew date"
-    );
-    return;
-  }
 
   API.saveBeer(beer);
   //.then(function() {
@@ -167,7 +166,7 @@ var handleFormSubmit = function(event) {
   $ingredient4.val("");
   $ingredient4Weight.val("");
   $ingredient5.val("");
-  $ingredient5Weight.val$("");
+  $ingredient5Weight.val("");
   $zincWeight.val("");
   $whirlflocWeight.val("");
   $CaCl2Weight.val("");
@@ -189,10 +188,11 @@ var handleFormSubmit = function(event) {
   $dryhop2Boil.val("");
   $dryhop3.val("");
   $dryhop3Weight.val("");
-  $dryhop3Boil.val$("");
+  $dryhop3Boil.val("");
   $volUnits.val("");
   $notes.val("");
 };
+
 
 // handleDeleteBtnClick is called when an beer's delete button is clicked
 // Remove the beer from the db and refresh the list

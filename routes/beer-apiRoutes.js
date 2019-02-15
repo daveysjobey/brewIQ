@@ -15,19 +15,7 @@ module.exports = function(app) {
     });
   });
 
-  // creat a new row in Beer table using new input
-  app.post("/api/beers", function(req, res) {
-    db.Beer.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
 
-  //creat a new row in Step1 table using new input
-  app.post("/api/step1", function(req, res) {
-    db.Step1.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
 
   //creat a new row in Step2 table using new input
   app.post("/api/step2", function(req, res) {
