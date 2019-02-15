@@ -214,6 +214,10 @@ var updateBeerStage = function () {
     stage4: 0
   };
   API.updateStage(stage);
+  setTimeout(returnHome, 1000);
+};
+var returnHome = function () {
+  window.location.href = "/";
 };
 
 // handleDeleteBtnClick is called when an beer's delete button is clicked

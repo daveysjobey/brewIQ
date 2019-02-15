@@ -7,7 +7,7 @@ var $submit = $("#submit");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBeer: function(beer) {
+  saveBeer: function (beer) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -17,19 +17,19 @@ var API = {
       data: JSON.stringify(beer)
     });
   },
-  getBeers: function() {
+  getBeers: function () {
     return $.ajax({
       url: "api/beers",
       type: "GET"
     });
   },
-  updateBeer: function() {
+  updateBeer: function () {
     return $.ajax({
       url: "api/beers",
       type: "PUT"
     });
   },
-  deleteBeer: function(id) {
+  deleteBeer: function (id) {
     return $.ajax({
       url: "api/beers/" + id,
       type: "DELETE"
@@ -68,7 +68,7 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new beer
 // Save the new beer to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var beer = {
@@ -96,6 +96,11 @@ var handleFormSubmit = function(event) {
   $style.val("");
   $brewerName.val("");
   $brewDate.val("");
+
+  setTimeout(returnHome, 1000);
+};
+var returnHome = function () {
+  window.location.href = "/";
 };
 
 // handleDeleteBtnClick is called when an beer's delete button is clicked

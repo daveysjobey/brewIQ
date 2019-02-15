@@ -8,7 +8,7 @@ module.exports = function (app) {
   // GET route for getting stage1 info
   //creat a new row in Step1 table using new input
   app.post("/stage3/api/stage3/", function (req, res) {
-    db.Stage1.create(req.body).then(function (dbStage3) {
+    db.Stage3.create(req.body).then(function (dbStage3) {
       res.json(dbStage3);
     });
   });

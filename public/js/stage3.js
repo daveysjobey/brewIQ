@@ -76,7 +76,7 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new beer
 // Save the new beer to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var beer = {
@@ -111,8 +111,11 @@ var updateBeerStage = function () {
     stage4: 1
   };
   API.updateStage(stage);
+  setTimeout(returnHome, 1000);
 };
-
+var returnHome = function () {
+  window.location.href = "/";
+};
 // handleDeleteBtnClick is called when an beer's delete button is clicked
 // Remove the beer from the db and refresh the list
 //var handleDeleteBtnClick = function() {
