@@ -16,7 +16,7 @@
     "logging": false
   },
   "production": {
-    "process.env.PORT": "JAWSDB_URL",
+    "use_env_variabl": "JAWSDB_URL",
     "dialect": "mysql"
   }
 }
