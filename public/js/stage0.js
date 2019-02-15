@@ -7,7 +7,7 @@ var $submit = $("#submit");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBeer: function (beer) {
+  saveBeer: function(beer) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -17,19 +17,19 @@ var API = {
       data: JSON.stringify(beer)
     });
   },
-  getBeers: function () {
+  getBeers: function() {
     return $.ajax({
       url: "api/beers",
       type: "GET"
     });
   },
-  updateBeer: function () {
+  updateBeer: function() {
     return $.ajax({
       url: "api/beers",
       type: "PUT"
     });
   },
-  deleteBeer: function (id) {
+  deleteBeer: function(id) {
     return $.ajax({
       url: "api/beers/" + id,
       type: "DELETE"
@@ -37,38 +37,7 @@ var API = {
   }
 };
 
-// refreshBeers gets new beers from the db and repopulates the list
-// var refreshBeers = function() {
-//   API.getBeers().then(function(data) {
-//     var $beers = data.map(function(beer) {
-//       var $a = $("<a>")
-//         .text(beer.text)
-//         .attr("href", "/beer/" + beer.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": beer.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $brewDate.empty();
-//     $brewDate.append($beers);
-//   });
-// };
-
-// handleFormSubmit is called whenever we submit a new beer
-// Save the new beer to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var beer = {
@@ -86,35 +55,21 @@ var handleFormSubmit = function (event) {
     return;
   }
 
+  //saveBeer ajax call
   API.saveBeer(beer);
-  //.then(function() {
-  //refreshBeers();
-
-  //);
 
   $brand.val("");
   $style.val("");
   $brewerName.val("");
   $brewDate.val("");
 
+  //gives db time to update before home page renders
   setTimeout(returnHome, 1000);
 };
-var returnHome = function () {
+
+//directs user back home automatically after submitting
+var returnHome = function() {
   window.location.href = "/";
 };
 
-// handleDeleteBtnClick is called when an beer's delete button is clicked
-// Remove the beer from the db and refresh the list
-//var handleDeleteBtnClick = function() {
-//var idToDelete = $(this)
-//.parent()
-//.attr("data-id");
-
-//API.deleteBeer(idToDelete).then(function() {
-//refreshBeers();
-//});
-//};
-
-// Add event listeners to the submit and delete buttons
 $submit.on("click", handleFormSubmit);
-//$delete.on("click", ".delete", handleDeleteBtnClick);

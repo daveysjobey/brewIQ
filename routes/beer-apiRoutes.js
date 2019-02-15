@@ -15,8 +15,6 @@ module.exports = function(app) {
     });
   });
 
-
-
   //creat a new row in Step2 table using new input
   app.post("/api/step2", function(req, res) {
     db.Step2.create(req.body).then(function(dbPost) {
@@ -34,7 +32,8 @@ module.exports = function(app) {
   //update a row in Beers table
   app.put("/api/beers", function(req, res) {
     console.log(req.body);
-    db.Beer.update(req.body, { where: { id: req.body.id }
+    db.Beer.update(req.body, {
+      where: { id: req.body.id }
     }).then(function(dbBeer) {
       res.json(dbBeer);
     });
@@ -43,7 +42,8 @@ module.exports = function(app) {
   //update a row in Step1 table
   app.put("/api/step1", function(req, res) {
     console.log(req.body);
-    db.Step1.update(req.body, { where: { BeerId: req.body.BeerId }
+    db.Step1.update(req.body, {
+      where: { BeerId: req.body.BeerId }
     }).then(function(dbBeer) {
       res.json(dbBeer);
     });
@@ -52,7 +52,8 @@ module.exports = function(app) {
   //update a row in Step2 table
   app.put("/api/step2", function(req, res) {
     console.log(req.body);
-    db.Step2.update(req.body, { where: { BeerId: req.body.BeerId }
+    db.Step2.update(req.body, {
+      where: { BeerId: req.body.BeerId }
     }).then(function(dbBeer) {
       res.json(dbBeer);
     });
@@ -61,7 +62,8 @@ module.exports = function(app) {
   //update a row in Step3 table
   app.put("/api/step3", function(req, res) {
     console.log(req.body);
-    db.Step3.update(req.body, { where: { BeerId: req.body.BeerId }
+    db.Step3.update(req.body, {
+      where: { BeerId: req.body.BeerId }
     }).then(function(dbBeer) {
       res.json(dbBeer);
     });

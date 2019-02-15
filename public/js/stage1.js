@@ -36,13 +36,13 @@ var $dryhop3Boil = $("#dryhop3Boil");
 var $volUnits = $("#volUnits");
 var $notes = $("#notes");
 var $submit = $("#submit");
-var pathArray = window.location.pathname.split('/');
+var pathArray = window.location.pathname.split("/");
 var BeerId = pathArray[2];
 console.log(BeerId);
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBeer: function (beer) {
+  saveBeer: function(beer) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -53,14 +53,13 @@ var API = {
     });
   },
 
-
-  getBeers: function () {
+  getBeers: function() {
     return $.ajax({
       url: "api/beers",
       type: "GET"
     });
   },
-  updateStage: function (stage) {
+  updateStage: function(stage) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -70,7 +69,7 @@ var API = {
       data: JSON.stringify(stage)
     });
   },
-  deleteBeer: function (id) {
+  deleteBeer: function(id) {
     return $.ajax({
       url: "api/beers/" + id,
       type: "DELETE"
@@ -78,42 +77,11 @@ var API = {
   }
 };
 
-// refreshBeers gets new beers from the db and repopulates the list
-// var refreshBeers = function() {
-//   API.getBeers().then(function(data) {
-//     var $beers = data.map(function(beer) {
-//       var $a = $("<a>")
-//         .text(beer.text)
-//         .attr("href", "/beer/" + beer.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": beer.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $brewDate.empty();
-//     $brewDate.append($beers);
-//   });
-// };
-
-// handleFormSubmit is called whenever we submit a new beer
-// Save the new beer to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   console.log("hello");
   event.preventDefault();
 
-  var pathArray = window.location.pathname.split('/');
+  var pathArray = window.location.pathname.split("/");
   var BeerId = pathArray[2];
   console.log(BeerId);
 
@@ -158,12 +126,10 @@ var handleFormSubmit = function (event) {
     BeerId: BeerId
   };
 
-  API.saveBeer(beer)
-    .then(function () {
-      updateBeerStage();
-    });
-
-  //);
+  //saveBeer ajax call 
+  API.saveBeer(beer).then(function() {
+    updateBeerStage();
+  });
 
   $batchNumber.val("");
   $fermenter.val("");
@@ -203,7 +169,8 @@ var handleFormSubmit = function (event) {
   $notes.val("");
 };
 
-var updateBeerStage = function () {
+//hacky way to get stages to update update updating info 
+var updateBeerStage = function() {
   var stage = {
     id: BeerId,
     stage: 2,
@@ -214,24 +181,14 @@ var updateBeerStage = function () {
     stage4: 0
   };
   API.updateStage(stage);
+
+  //gives db time to update before home page renders
   setTimeout(returnHome, 1000);
 };
-var returnHome = function () {
+
+//directs user back home automatically after submitting
+var returnHome = function() {
   window.location.href = "/";
 };
 
-// handleDeleteBtnClick is called when an beer's delete button is clicked
-// Remove the beer from the db and refresh the list
-//var handleDeleteBtnClick = function() {
-//var idToDelete = $(this)
-//.parent()
-//.attr("data-id");
-
-//API.deleteBeer(idToDelete).then(function() {
-//refreshBeers();
-//});
-//};
-
-// Add event listeners to the submit and delete buttons
 $submit.on("click", handleFormSubmit);
-//$delete.on("click", ".delete", handleDeleteBtnClick);
