@@ -3,7 +3,7 @@ var $beerText = $("#beer-text");
 var $beerDescription = $("#beer-description");
 var $submitBtn = $("#submit");
 var $beerList = $("#beer-list");
-var $editBtn = $(".edit-btn");
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
