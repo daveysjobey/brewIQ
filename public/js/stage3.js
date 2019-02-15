@@ -5,32 +5,39 @@ var $transferVol = $("#transferVol");
 var $kegDate = $("#kegDate");
 var $kegVol = $("#kegVol");
 var $submit = $("#submit");
+var pathArray = window.location.pathname.split('/');
+var BeerId = pathArray[2];
+console.log(BeerId);
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBeer: function(beer) {
+  saveBeer: function (beer) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/beers",
+      url: "api/stage3",
       data: JSON.stringify(beer)
     });
   },
-  getBeers: function() {
+  getBeers: function () {
     return $.ajax({
       url: "api/beers",
       type: "GET"
     });
   },
-  updateBeer: function() {
+  updateStage: function (stage) {
     return $.ajax({
-      url: "api/beers",
-      type: "PUT"
+      headers: {
+        "Content-Type": "application/json"
+      },
+      url: "api/beers/" + BeerId,
+      type: "PUT",
+      data: JSON.stringify(stage)
     });
   },
-  deleteBeer: function(id) {
+  deleteBeer: function (id) {
     return $.ajax({
       url: "api/beers/" + id,
       type: "DELETE"
@@ -73,31 +80,37 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var beer = {
-    brightTank: $brightTank.val("#brightTank").trim(),
-    transferDate: $transferDate.val("#transferDate").trim(),
-    transferVol: $transferVol.val("#transferVol").trim(),
-    kegDate: $kegDate.val("#kegDate").trim(),
-    kegVol: $kegVol.val("#kegVol").trim()
+    brightTank: $brightTank.val().trim(),
+    transferDate: $transferDate.val().trim(),
+    transferVol: $transferVol.val().trim(),
+    kegDate: $kegDate.val().trim(),
+    kegVol: $kegVol.val().trim()
   };
 
-  if (!(beer.transferDate && beer.transferVol && beer.kegDate && beer.kegVol)) {
-    alert(
-      "You must enter the beer's brand, style, brewer's name, and brew date"
-    );
-    return;
-  }
+  API.saveBeer(beer)
+    .then(function () {
+      updateBeerStage();
+    });
 
-  API.saveBeer(beer);
-  //.then(function() {
-  //refreshBeers();
-
-  //);
 
   $brightTank.val("");
   $transferDate.val("");
   $transferVol.val("");
   $kegDate.val("");
   $kegVol.val("");
+};
+
+var updateBeerStage = function () {
+  var stage = {
+    id: BeerId,
+    stage: 4,
+    stage0: 0,
+    stage1: 0,
+    stage2: 0,
+    stage3: 0,
+    stage4: 1
+  };
+  API.updateStage(stage);
 };
 
 // handleDeleteBtnClick is called when an beer's delete button is clicked

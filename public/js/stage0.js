@@ -75,7 +75,8 @@ var handleFormSubmit = function(event) {
     brand: $brand.val().trim(),
     style: $style.val().trim(),
     brewerName: $brewerName.val().trim(),
-    brewDate: $brewDate.val().trim()
+    brewDate: $brewDate.val().trim(),
+    stage: 1
   };
 
   if (!(beer.brand && beer.style && beer.brewerName && beer.brewDate)) {

@@ -26,32 +26,39 @@ var $fvTemp = $("#fvTemp");
 var $dryhopDate = $("#dryhopDate");
 var $celleringDate = $("#celleringDate");
 var $submit = $("#submit");
+var pathArray = window.location.pathname.split('/');
+var BeerId = pathArray[2];
+console.log(BeerId);
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBeer: function(beer) {
+  saveBeer: function (beer) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/beers",
+      url: "api/stage2",
       data: JSON.stringify(beer)
     });
   },
-  getBeers: function() {
+  getBeers: function () {
     return $.ajax({
       url: "api/beers",
       type: "GET"
     });
   },
-  updateBeer: function() {
+  updateStage: function (stage) {
     return $.ajax({
-      url: "api/beers",
-      type: "PUT"
+      headers: {
+        "Content-Type": "application/json"
+      },
+      url: "api/beers/" + BeerId,
+      type: "PUT",
+      data: JSON.stringify(stage)
     });
   },
-  deleteBeer: function(id) {
+  deleteBeer: function (id) {
     return $.ajax({
       url: "api/beers/" + id,
       type: "DELETE"
@@ -90,36 +97,37 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new beer
 // Save the new beer to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var beer = {
-    mashWaterVol: $mashWaterVol.val("").trim(),
-    strikeTemp: $strikeTemp.val("").trim(),
-    mashTemp: $mashTemp.val("").trim(),
-    allInTime: $allInTime.val("").trim(),
-    vorlofStartTime: $vorlofStartTime.val("").trim(),
-    lauterStartTime: $lauterStartTime.val("").trim(),
-    lauterStopTime: $lauterStopTime.val("").trim(),
-    spargeStartTime: $spargeStartTime.val("").trim(),
-    spargeStopTime: $spargeStopTime.val("").trim(),
-    spargeWaterVol: $spargeWaterVol.val("").trim(),
-    kettleFullVol: $kettleFullVol.val("").trim(),
-    preboilGravity: $preboilGravity.val("").trim(),
-    postboilGravity: $postboilGravity.val("").trim(),
-    boilStartTime: $boilStartTime.val("").trim(),
-    whilrpoolStartTime: $whilrpoolStartTime.val("").trim(),
-    whilrpoolStopTime: $whilrpoolStopTime.val("").trim(),
-    knockOutStart: $knockOutStart.val("").trim(),
-    knockOutStop: $knockOutStop.val("").trim(),
-    knockOutTemp: $knockOutTemp.val("").trim(),
-    o2Lmp: $o2Lmp.val("").trim(),
-    yeastName: $yeastName.val("").trim(),
-    yeastGen: $yeastGen.val("").trim(),
-    pitchVol: $pitchVol.val("").trim(),
-    fvTemp: $fvTemp.val("").trim(),
-    dryhopDate: $dryhopDate.val("").trim(),
-    celleringDate: $celleringDate.val("").trim()
+    mashWaterVol: $mashWaterVol.val().trim(),
+    strikeTemp: $strikeTemp.val().trim(),
+    mashTemp: $mashTemp.val().trim(),
+    allInTime: $allInTime.val().trim(),
+    vorlofStartTime: $vorlofStartTime.val().trim(),
+    lauterStartTime: $lauterStartTime.val().trim(),
+    lauterStopTime: $lauterStopTime.val().trim(),
+    spargeStartTime: $spargeStartTime.val().trim(),
+    spargeStopTime: $spargeStopTime.val().trim(),
+    spargeWaterVol: $spargeWaterVol.val().trim(),
+    kettleFullVol: $kettleFullVol.val().trim(),
+    preboilGravity: $preboilGravity.val().trim(),
+    postboilGravity: $postboilGravity.val().trim(),
+    boilStartTime: $boilStartTime.val().trim(),
+    whilrpoolStartTime: $whilrpoolStartTime.val().trim(),
+    whilrpoolStopTime: $whilrpoolStopTime.val().trim(),
+    knockOutStart: $knockOutStart.val().trim(),
+    knockOutStop: $knockOutStop.val().trim(),
+    knockOutTemp: $knockOutTemp.val().trim(),
+    o2Lmp: $o2Lmp.val().trim(),
+    yeastName: $yeastName.val().trim(),
+    yeastGen: $yeastGen.val().trim(),
+    pitchVol: $pitchVol.val().trim(),
+    fvTemp: $fvTemp.val().trim(),
+    dryhopDate: $dryhopDate.val().trim(),
+    celleringDate: $celleringDate.val().trim(),
+    BeerId: BeerId
   };
 
   //if (!(beer.yeastName && beer.style && beer.brewerName && beer.brewDate)) {
@@ -128,50 +136,56 @@ var handleFormSubmit = function(event) {
   //return;
   //}
 
-  API.saveBeer(beer);
+  API.saveBeer(beer)
+    .then(function () {
+      updateBeerStage();
+    });
+
   //.then(function() {
   //refreshBeers();
 
   //);
 
-  $batchNumber.val("");
-  $fermenter.val("");
-  $ingredient1.val("");
-  $ingredient1Weight.val("");
-  $ingredient2.val("");
-  $ingredient2Weight.val("");
-  $ingredient3.val("");
-  $ingredient3Weight.val("");
-  $ingredient4.val("");
-  $ingredient4Weight.val("");
-  $ingredient5.val("");
-  $ingredient5Weight.val$("");
-  $zincWeight.val("");
-  $whirlflocWeight.val("");
-  $CaCl2Weight.val("");
-  $CoSo4Weight.val("");
-  $hop1.val("");
-  $hop1Weight.val("");
-  $hop1Boil.val("");
-  $hop2.val("");
-  $hop2Weight.val("");
-  $hop2Boil.val("");
-  $hop3.val("");
-  $hop3Weight.val("");
-  $hop3Boil.val("");
-  $dryhop1.val("");
-  $dryhop1Weight.val("");
-  $dryhop1Boil.val("");
-  $dryhop2.val("");
-  $dryhop2Weight.val("");
-  $dryhop2Boil.val("");
-  $dryhop3.val("");
-  $dryhop3Weight.val("");
-  $dryhop3Boil.val$("");
-  $volUnits.val("");
-  $notes.val("");
+  $mashWaterVol.val(""),
+  $strikeTemp.val(""),
+  $mashTemp.val(""),
+  $allInTime.val(""),
+  $vorlofStartTime.val(""),
+  $lauterStartTime.val(""),
+  $lauterStopTime.val(""),
+  $spargeStartTime.val(""),
+  $spargeStopTime.val(""),
+  $spargeWaterVol.val(""),
+  $kettleFullVol.val(""),
+  $preboilGravity.val(""),
+  $postboilGravity.val(""),
+  $boilStartTime.val(""),
+  $whilrpoolStartTime.val(""),
+  $whilrpoolStopTime.val(""),
+  $knockOutStart.val(""),
+  $knockOutStop.val(""),
+  $knockOutTemp.val(""),
+  $o2Lmp.val(""),
+  $yeastName.val(""),
+  $yeastGen.val(""),
+  $pitchVol.val(""),
+  $fvTemp.val(""),
+  $dryhopDate.val(""),
+  $celleringDate.val("")
 };
 
+var updateBeerStage = function () {
+  var stage = {
+    id: BeerId,
+    stage: 3,
+    stage0: 0,
+    stage1: 0,
+    stage2: 0,
+    stage3: 1,
+    stage4: 0
+  };
+  API.updateStage(stage);
+};
 // handleDeleteBtnClick is called when an beer's delete button is clicked
 // Remove the beer from the db and refresh the list
 //var handleDeleteBtnClick = function() {

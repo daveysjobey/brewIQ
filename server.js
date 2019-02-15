@@ -22,7 +22,11 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/beer-apiRoutes")(app);
+require("./routes/stage1apiRoutes")(app);
+require("./routes/stage2apiRoutes")(app);
+require("./routes/stage3apiRoutes")(app);
+require("./routes/stage4apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
