@@ -13,4 +13,14 @@ module.exports = function (app) {
       res.json(dbStage1);
     });
   });
+
+  app.put("/stage1/api/beers/:id", function (req, res) {
+    db.Beer.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function (dbBeer) {
+      res.json(dbBeer);
+    });
+  });
 };

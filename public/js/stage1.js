@@ -36,10 +36,13 @@ var $dryhop3Boil = $("#dryhop3Boil");
 var $volUnits = $("#volUnits");
 var $notes = $("#notes");
 var $submit = $("#submit");
+var pathArray = window.location.pathname.split('/');
+var BeerId = pathArray[2];
+console.log(BeerId);
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBeer: function(beer) {
+  saveBeer: function (beer) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -49,19 +52,25 @@ var API = {
       data: JSON.stringify(beer)
     });
   },
-  getBeers: function() {
+
+
+  getBeers: function () {
     return $.ajax({
       url: "api/beers",
       type: "GET"
     });
   },
-  updateBeer: function() {
+  updateStage: function (stage) {
     return $.ajax({
-      url: "api/beers",
-      type: "PUT"
+      headers: {
+        "Content-Type": "application/json"
+      },
+      url: "api/beers/" + BeerId,
+      type: "PUT",
+      data: JSON.stringify(stage)
     });
   },
-  deleteBeer: function(id) {
+  deleteBeer: function (id) {
     return $.ajax({
       url: "api/beers/" + id,
       type: "DELETE"
@@ -100,7 +109,7 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new beer
 // Save the new beer to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   console.log("hello");
   event.preventDefault();
 
@@ -149,9 +158,10 @@ var handleFormSubmit = function(event) {
     BeerId: BeerId
   };
 
-  API.saveBeer(beer);
-  //.then(function() {
-  //refreshBeers();
+  API.saveBeer(beer)
+    .then(function () {
+      updateBeerStage();
+    });
 
   //);
 
@@ -193,6 +203,18 @@ var handleFormSubmit = function(event) {
   $notes.val("");
 };
 
+var updateBeerStage = function() {
+  var stage = {
+    id: BeerId,
+    stage: 2,
+    stage0: 0,
+    stage1: 0,
+    stage2: 1,
+    stage3: 0,
+    stage4: 0
+  };
+  API.updateStage(stage);
+};
 
 // handleDeleteBtnClick is called when an beer's delete button is clicked
 // Remove the beer from the db and refresh the list
