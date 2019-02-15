@@ -5,23 +5,22 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // GET route for getting stage1 info
-  app.get("/api/stage1", function (req, res) {
-    var query = {};
-    if (req.query.BeerId) {
-      query.BeerId = req.query.BeerId;
-    }
-    db.Beer.findAll({
-      where: query
-    }).then(function (dbStage1) {
-      res.json(dbStage1);
+
+
+  //creat a new row in Step1 table using new input
+  app.post("/stage2/api/stage2/", function (req, res) {
+    db.Stage1.create(req.body).then(function (dbStage2) {
+      res.json(dbStage2);
     });
   });
 
-  //creat a new row in Step1 table using new input
-  app.post("/api/step1", function (req, res) {
-    db.Step1.create(req.body).then(function (dbPost) {
-      res.json(dbPost);
+  app.put("/stage2/api/beers/:id", function (req, res) {
+    db.Beer.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function (dbBeer) {
+      res.json(dbBeer);
     });
   });
 };

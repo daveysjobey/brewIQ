@@ -203,7 +203,7 @@ var handleFormSubmit = function (event) {
   $notes.val("");
 };
 
-var updateBeerStage = function() {
+var updateBeerStage = function () {
   var stage = {
     id: BeerId,
     stage: 2,
