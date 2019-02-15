@@ -37,37 +37,6 @@ var API = {
   }
 };
 
-// refreshBeers gets new beers from the db and repopulates the list
-// var refreshBeers = function() {
-//   API.getBeers().then(function(data) {
-//     var $beers = data.map(function(beer) {
-//       var $a = $("<a>")
-//         .text(beer.text)
-//         .attr("href", "/beer/" + beer.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": beer.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $brewDate.empty();
-//     $brewDate.append($beers);
-//   });
-// };
-
-// handleFormSubmit is called whenever we submit a new beer
-// Save the new beer to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
@@ -86,30 +55,21 @@ var handleFormSubmit = function(event) {
     return;
   }
 
+  //saveBeer ajax call
   API.saveBeer(beer);
-  //.then(function() {
-  //refreshBeers();
-
-  //);
 
   $brand.val("");
   $style.val("");
   $brewerName.val("");
   $brewDate.val("");
+
+  //gives db time to update before home page renders
+  setTimeout(returnHome, 1000);
 };
 
-// handleDeleteBtnClick is called when an beer's delete button is clicked
-// Remove the beer from the db and refresh the list
-//var handleDeleteBtnClick = function() {
-//var idToDelete = $(this)
-//.parent()
-//.attr("data-id");
+//directs user back home automatically after submitting
+var returnHome = function() {
+  window.location.href = "/";
+};
 
-//API.deleteBeer(idToDelete).then(function() {
-//refreshBeers();
-//});
-//};
-
-// Add event listeners to the submit and delete buttons
 $submit.on("click", handleFormSubmit);
-//$delete.on("click", ".delete", handleDeleteBtnClick);

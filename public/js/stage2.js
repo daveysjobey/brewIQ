@@ -26,13 +26,13 @@ var $fvTemp = $("#fvTemp");
 var $dryhopDate = $("#dryhopDate");
 var $celleringDate = $("#celleringDate");
 var $submit = $("#submit");
-var pathArray = window.location.pathname.split('/');
+var pathArray = window.location.pathname.split("/");
 var BeerId = pathArray[2];
 console.log(BeerId);
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBeer: function (beer) {
+  saveBeer: function(beer) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -42,13 +42,13 @@ var API = {
       data: JSON.stringify(beer)
     });
   },
-  getBeers: function () {
+  getBeers: function() {
     return $.ajax({
       url: "api/beers",
       type: "GET"
     });
   },
-  updateStage: function (stage) {
+  updateStage: function(stage) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -58,7 +58,7 @@ var API = {
       data: JSON.stringify(stage)
     });
   },
-  deleteBeer: function (id) {
+  deleteBeer: function(id) {
     return $.ajax({
       url: "api/beers/" + id,
       type: "DELETE"
@@ -66,38 +66,7 @@ var API = {
   }
 };
 
-// refreshBeers gets new beers from the db and repopulates the list
-// var refreshBeers = function() {
-//   API.getBeers().then(function(data) {
-//     var $beers = data.map(function(beer) {
-//       var $a = $("<a>")
-//         .text(beer.text)
-//         .attr("href", "/beer/" + beer.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": beer.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $brewDate.empty();
-//     $brewDate.append($beers);
-//   });
-// };
-
-// handleFormSubmit is called whenever we submit a new beer
-// Save the new beer to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var beer = {
@@ -130,51 +99,40 @@ var handleFormSubmit = function (event) {
     BeerId: BeerId
   };
 
-  //if (!(beer.yeastName && beer.style && beer.brewerName && beer.brewDate)) {
-  //alert(
-  //"You must enter the beer's brand, style, brewer's name, and brew date"//);
-  //return;
-  //}
+  API.saveBeer(beer).then(function() {
+    updateBeerStage();
+  });
 
-  API.saveBeer(beer)
-    .then(function () {
-      updateBeerStage();
-    });
-
-  //.then(function() {
-  //refreshBeers();
-
-  //);
-
-  $mashWaterVol.val(""),
-  $strikeTemp.val(""),
-  $mashTemp.val(""),
-  $allInTime.val(""),
-  $vorlofStartTime.val(""),
-  $lauterStartTime.val(""),
-  $lauterStopTime.val(""),
-  $spargeStartTime.val(""),
-  $spargeStopTime.val(""),
-  $spargeWaterVol.val(""),
-  $kettleFullVol.val(""),
-  $preboilGravity.val(""),
-  $postboilGravity.val(""),
-  $boilStartTime.val(""),
-  $whilrpoolStartTime.val(""),
-  $whilrpoolStopTime.val(""),
-  $knockOutStart.val(""),
-  $knockOutStop.val(""),
-  $knockOutTemp.val(""),
-  $o2Lmp.val(""),
-  $yeastName.val(""),
-  $yeastGen.val(""),
-  $pitchVol.val(""),
-  $fvTemp.val(""),
-  $dryhopDate.val(""),
-  $celleringDate.val("")
+    $mashWaterVol.val(""),
+    $strikeTemp.val(""),
+    $mashTemp.val(""),
+    $allInTime.val(""),
+    $vorlofStartTime.val(""),
+    $lauterStartTime.val(""),
+    $lauterStopTime.val(""),
+    $spargeStartTime.val(""),
+    $spargeStopTime.val(""),
+    $spargeWaterVol.val(""),
+    $kettleFullVol.val(""),
+    $preboilGravity.val(""),
+    $postboilGravity.val(""),
+    $boilStartTime.val(""),
+    $whilrpoolStartTime.val(""),
+    $whilrpoolStopTime.val(""),
+    $knockOutStart.val(""),
+    $knockOutStop.val(""),
+    $knockOutTemp.val(""),
+    $o2Lmp.val(""),
+    $yeastName.val(""),
+    $yeastGen.val(""),
+    $pitchVol.val(""),
+    $fvTemp.val(""),
+    $dryhopDate.val(""),
+    $celleringDate.val("");
 };
 
-var updateBeerStage = function () {
+//hacky way to get stages to update update updating info 
+var updateBeerStage = function() {
   var stage = {
     id: BeerId,
     stage: 3,
@@ -185,19 +143,14 @@ var updateBeerStage = function () {
     stage4: 0
   };
   API.updateStage(stage);
+
+  //gives db time to update before home page renders
+  setTimeout(returnHome, 1000);
 };
-// handleDeleteBtnClick is called when an beer's delete button is clicked
-// Remove the beer from the db and refresh the list
-//var handleDeleteBtnClick = function() {
-//var idToDelete = $(this)
-//.parent()
-//.attr("data-id");
 
-//API.deleteBeer(idToDelete).then(function() {
-//refreshBeers();
-//});
-//};
+//directs user back home automatically after submitting
+var returnHome = function() {
+  window.location.href = "/";
+};
 
-// Add event listeners to the submit and delete buttons
 $submit.on("click", handleFormSubmit);
-//$delete.on("click", ".delete", handleDeleteBtnClick);
