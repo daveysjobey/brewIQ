@@ -3,25 +3,15 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
-
-  // GET route for getting stage1 info
-  app.get("/api/stage1", function (req, res) {
-    var query = {};
-    if (req.query.BeerId) {
-      query.BeerId = req.query.BeerId;
-    }
-    db.Beer.findAll({
-      where: query
-    }).then(function (dbStage1) {
-      res.json(dbStage1);
-    });
-  });
-
-  //creat a new row in Step1 table using new input
-  app.post("/api/step1", function (req, res) {
-    db.Step1.create(req.body).then(function (dbPost) {
-      res.json(dbPost);
+module.exports = function(app) {
+  app.get("/stage4/api/beers/:id", function(req, res) {
+    // Find one Author with the id in req.params.id and return them to the user with res.json
+    db.Beer.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbBeer) {
+      res.json(dbBeer);
     });
   });
 };
