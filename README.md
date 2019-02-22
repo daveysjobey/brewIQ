@@ -114,9 +114,3 @@ The App was build by team collaboration using a Scrum board to track our progres
 * **Austin Wiley** - [github](https://gist.github.com/AustinWiley)
 
 See also the list of [contributors](https://github.com/daveysjobey/brewIQ/graphs/contributors) who participated in this project.
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
